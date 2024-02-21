@@ -1,11 +1,10 @@
-using Microsoft.Edge.SeleniumTools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections;
 
 namespace UITests
 {
@@ -35,12 +34,8 @@ namespace UITests
                     "Firefox" => new FirefoxDriver(
                         Environment.GetEnvironmentVariable("GeckoWebDriver")
                     ),
-                    "Edge" => new EdgeDriver(
-                        Environment.GetEnvironmentVariable("EdgeWebDriver"),
-                        new EdgeOptions
-                        {
-                            UseChromium = true
-                        }
+                    "Edge" => new  EdgeDriver(
+                        Environment.GetEnvironmentVariable("EdgeWebDriver")
                     ),
                     _ => throw new ArgumentException($"'{browser}': Unknown browser")
                 };
